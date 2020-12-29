@@ -96,6 +96,12 @@ function CheckCheckboxes() {
     if (item.completed == true) {
       // !!! querySelector does not work on older browsers
       document.querySelector(`[id='${item.id}'] #checkbox`).checked = true;
+      document.querySelector(
+        `[id='${item.id}'] #descriptionCard`
+      ).style.textDecoration = "line-through red 2px";
+      document.querySelector(
+        `[id='${item.id}'] #deadlineCard`
+      ).style.textDecoration = "line-through red 2px";
     }
   });
 }
@@ -111,6 +117,7 @@ function CreateItemCards() {
     //Create description
     let description = document.createElement("p");
     description.innerText = `Description: ${item.description}`;
+    description.id = "descriptionCard";
     //Create deadline
     let deadline = document.createElement("p");
     if (item.deadline) {
@@ -119,6 +126,7 @@ function CreateItemCards() {
       }`;
     }
     deadline.innerText = `Deadline: ${item.deadline}`;
+    deadline.id = "deadlineCard";
     //Create checkbox
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -138,6 +146,7 @@ function CreateItemCards() {
     //Create delete button
     let deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
+    deleteButton.id = "deleteButton";
     deleteButton.className = "deleteButton";
     deleteButton.onclick = function () {
       DeleteItem(item.id);
