@@ -52,6 +52,7 @@ function ItemCheck(id) {
 //Delete item object
 function DeleteItem(id) {
   //Confirm the delete action
+  // !!! delete button stays active if you press cancel, I could remove :focus but that damages accessibility of the page
   if (confirm("Are you sure you want to delete this?")) {
     //Get items object array
     let items = JSON.parse(sessionStorage.getItem("items"));
@@ -64,9 +65,9 @@ function DeleteItem(id) {
     });
     //Set modified object array to sessionStorage
     sessionStorage.setItem("items", JSON.stringify(items));
+    //Reload items
+    location.reload();
   }
-  //Reload items
-  location.reload();
 }
 //Filter items object array based on deadline and completed properties
 function FilterItems() {
