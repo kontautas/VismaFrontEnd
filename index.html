@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="index.css" rel="stylesheet" />
+    <title>Visma Front-end Task</title>
+  </head>
+  <body onload="LoadItems()">
+    <button
+      class="newItemButton"
+      onclick="ChangeFormDisplay()"
+      id="newItemButton"
+    >
+      Add new item
+    </button>
+    <form onsubmit="CreateItem()" id="newItemForm" class="newItemForm">
+      <label>Description:</label>
+      <textarea
+        required
+        maxlength="160"
+        id="descriptionForm"
+        rows="6"
+      ></textarea>
+      <label>Deadline:</label>
+      <input type="datetime-local" id="deadlineForm" />
+      <button type="submit">Add</button>
+    </form>
+    <div class="itemList" id="itemList"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
