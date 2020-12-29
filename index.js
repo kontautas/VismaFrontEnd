@@ -96,6 +96,7 @@ function CheckCheckboxes() {
     if (item.completed == true) {
       // !!! querySelector does not work on older browsers
       document.querySelector(`[id='${item.id}'] #checkbox`).checked = true;
+      //Could have used line-through on the whole item card, but then the delete button gets crossed out too
       document.querySelector(
         `[id='${item.id}'] #descriptionCard`
       ).style.textDecoration = "line-through red 2px";
